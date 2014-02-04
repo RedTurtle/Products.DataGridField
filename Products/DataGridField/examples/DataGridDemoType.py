@@ -144,7 +144,7 @@ class DataGridDemoType2(atapi.BaseContent):
             ("sample2", _(u"Sample value 2"),),))
 
     security.declarePublic(help)
-    def help(self, at_url=None):
+    def help(self, at_url=None, ajax_load=1, ajax_include_head=1):
         """Callable for HelpColumn example"""
         return at_url
 

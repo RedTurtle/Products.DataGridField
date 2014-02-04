@@ -42,7 +42,7 @@
                 helper_text    python:column_definition.getHelperText();
                 icon           python:column_definition.getIcon();
                 at_url         python:'/'.join(here.getPhysicalPath());
-                url            python:startup_url + '/' + helper_url + '?at_url=' + at_url">
+                url            python:startup_url + '/' + helper_url + '?at_url=' + at_url + '&ajax_load=1&ajax_include_head='">
 			<a href="" onclick="" class="columnHelp" rel="#helpOverlay"
 			   tal:attributes="href url;
 			                   onclick string:jQuery(this).overlay({load: true, onBeforeLoad: function() {this.getOverlay().load(this.getTrigger().attr('href'))}});;return false;;">
