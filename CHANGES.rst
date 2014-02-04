@@ -19,6 +19,9 @@ Changelog
   the column's label
   [keul]
 
+- HelpColumn no more try to use old kupu JavaScript code, but load help in jQuery Tools overlay
+  [keul]
+
 1.9.0 (2013-09-19)
 ------------------
 
