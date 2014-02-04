@@ -37,20 +37,25 @@
                             "
                         type="text" />
 
-        <tal:popup tal:define="startup_url python:'/'.join(here.getPhysicalPath());
+        <tal:popup tal:define="startup_url context/absolute_url;
                 helper_url     python:column_definition.getHelperUrl();
-                helper_text python:column_definition.getHelperText();
-                icon        python:column_definition.getIcon();
+                helper_text    python:column_definition.getHelperText();
+                icon           python:column_definition.getIcon();
                 at_url         python:'/'.join(here.getPhysicalPath());
-                url         python:startup_url + '/' + helper_url + '?at_url=' + at_url">
-            <img style="cursor: pointer"
-                 src=""
+                url            python:startup_url + '/' + helper_url + '?at_url=' + at_url">
+			<a href="" onclick="" class="columnHelp" rel="#helpOverlay"
+			   tal:attributes="href url;
+			                   onclick string:jQuery(this).overlay({load: true, onBeforeLoad: function() {this.getOverlay().load(this.getTrigger().attr('href'))}});;return false;;">
+            <img src=""
                  alt=""
-                 tal:attributes="onClick string:javascript:openPopup('${url}', 500, 550);
-                                 src string:${portal_url}/${icon};
+                 tal:attributes="src string:${portal_url}/${icon};
                                  alt python:helper_text"
-            />
+            /></a>
         </tal:popup>
+
+	<div class="helpOverlay" id="helpOverlay">
+	  <!-- the external content is loaded inside this tag -->
+	</div>
 
     </metal:edit_empty_cell_macro>
 

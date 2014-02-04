@@ -114,7 +114,8 @@ class DataGridDemoType2(atapi.BaseContent):
                     columns={
                         'text_column' : Column("Text column"),
                         # Help is help.pt
-                        'help_column' : HelpColumn("Help", _(u"See help here"), "help", "info.png")
+                        'help_column' : HelpColumn("Help", _(u"See help here"),
+                                                   script="help", icon="info.png")
                     },
                  ),
          ),
@@ -141,6 +142,13 @@ class DataGridDemoType2(atapi.BaseContent):
 
             (("sample", _(u"Sample value 1"),),
             ("sample2", _(u"Sample value 2"),),))
+
+    security.declarePublic(help)
+    def help(self, at_url=None):
+        """Callable for HelpColumn example"""
+        return at_url
+
+
 
 atapi.registerType(DataGridDemoType2, PKG_NAME)
 
